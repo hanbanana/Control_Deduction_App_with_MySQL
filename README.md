@@ -1,6 +1,6 @@
-# DeliveryGate-MySQL-Login-Admin-and-User-Login-out
+# Control_Deduction_App_with_MySQL
 
-Delivery Gate Application is a internal delivery order system. The core concept is a simple application that can quickly add delivery information.   
+Control Deduction Application is a internal loan deduction calculate system. The core concept is a simple application that can quickly calculate loan deduction information.   
 
 ## Technologies Used
 HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, MySQL, NPM, Node.js
