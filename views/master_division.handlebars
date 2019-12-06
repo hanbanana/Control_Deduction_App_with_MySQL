@@ -8,7 +8,7 @@
     <a href="/b_division_pages/create_b_division" style="font-size: 20px">Create</a>
     <br><br>
 
-    <div class="form-group">
+    <div class="form-group" style="width: 1000px">
       <fieldset>
         <form action="" class="form-group">
 
@@ -28,15 +28,15 @@
 
             <tbody>
               {{#each deliveryOrder}}
-              <tr style="text-transform: uppercase">
+              <tr>
                 {{!-- <td>{{this.id}}</td> --}}
-                <td>{{this.div_code}}</td>
-                <td>{{this.div_name}}</td>
+                <td style="width:50px">{{this.div_code}}</td>
+                <td style="width:100px">{{this.div_name}}</td>
                 <td style="width:200px">{{this.created_date}}</td>
                 <td style="width:200px">{{this.updated_date}}</td>
                 {{!-- <td><button><a href="delete_b_division/{{this.id}}">Delete</a></button></td> --}}
-                <td><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a></td>
-                <td><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>
+                <td style="width:50px"><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a></td>
+                <td style="width:50px"><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>
               </tr>
               {{/each}}
             </tbody>
