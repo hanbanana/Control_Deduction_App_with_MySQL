@@ -20,9 +20,13 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // b_division_controller file
-var routes = require("./controllers/b_division_controller");
+var routes_b_division = require("./controllers/b_division_controller");
 
-app.use(routes);
+// b_truck_controller file
+var routes_b_truck = require("./controllers/b_truck_controller");
+
+app.use(routes_b_division);
+app.use(routes_b_truck);
 
 // first login page
 app.get('/', function (request, response) {
