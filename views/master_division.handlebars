@@ -8,7 +8,7 @@
     <a href="/b_division_pages/create_b_division" style="font-size: 20px">Create</a>
     <br><br>
 
-    <div class="form-group" style="width: 1000px">
+    <div class="form-group" style="width: 400px">
       <fieldset>
         <form action="" class="form-group">
 
@@ -18,8 +18,8 @@
                 {{!-- <th scope="col" data-sortable="true">ID#</th> --}}
                 <th scope="col">Code</th>
                 <th scope="col">Name</th>
-                <th scope="col">Created</th>
-                <th scope="col">Updated</th>
+                {{!-- <th scope="col">Created</th>
+                <th scope="col">Updated</th> --}}
                 {{!-- <th scope="col">Delete</th> --}}
                 <th scope="col">Delete</th>
                 <th scope="col">Edit</th>
@@ -32,8 +32,8 @@
                 {{!-- <td>{{this.id}}</td> --}}
                 <td style="width:50px">{{this.div_code}}</td>
                 <td style="width:100px">{{this.div_name}}</td>
-                <td style="width:170px">{{this.created_date}}</td>
-                <td style="width:170px">{{this.updated_date}}</td>
+                {{!-- <td style="width:170px">{{this.created_date}}</td>
+                <td style="width:170px">{{this.updated_date}}</td> --}}
                 {{!-- <td><button><a href="delete_b_division/{{this.id}}">Delete</a></button></td> --}}
                 <td style="width:50px"><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a></td>
                 <td style="width:50px"><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>

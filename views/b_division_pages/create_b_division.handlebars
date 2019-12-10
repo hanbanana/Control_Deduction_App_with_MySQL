@@ -97,6 +97,7 @@
 
   {{!-- On One Line Form- --}}
   <div class="formDiv">
+
     <form id="createplan">
       <div class="form-group-sm row">
         <div class="col-sm">
@@ -108,6 +109,19 @@
           <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
             style="width: 170px">
           <br>
+
+          {{!-- select from DB --}}
+          {{!-- <label for="ex3">Status</label>
+          <select class="form-control form-control-sm" name="Status_" id="Status_" required
+            style="text-transform: uppercase">
+            <option value="" disabled selected>Choose...</option>
+                {{#each b_division}}
+            <option value="{{this.div_code}}">{{this.div_code}}</option>
+                {{/each}}
+            <option>Pending</option>
+          </select>
+          <br> --}}
+
           {{!-- <label for="ex2">Name</label>
           <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
             style="text-transform: uppercase; width: 100px">
@@ -117,10 +131,11 @@
 
       </div>
     </form>
-        <button class="btn btn-secondary btn-sm" style="margin-top: 25px" onclick="window.history.back()">Cancel</button>
+    <button class="btn btn-secondary btn-sm" style="margin-top: 25px" onclick="window.history.back()">Cancel</button>
     {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
     <br>
+
   </div>
 
 </div>
