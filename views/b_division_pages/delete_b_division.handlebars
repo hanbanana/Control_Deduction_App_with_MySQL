@@ -5,38 +5,40 @@
     <h4>Delete</h4>
     <br>
 
-    <br>
 
+    {{!-- On One Line Form- --}}
+    <div class="formDiv">
+        <form data-id="{{this.id}}" class="update-form">
+            <div class="form-group-sm row">
+                <div class="col-sm">
+                    <label for="ex1">Code</label>
+                    <input class="form-control form-control-sm" placeholder="Code" name="Code" id="div_code"
+                        value="{{this.div_code}}" style="width: 60px" disabled>
+                    <br>
+                    <label for="ex2">Name</label>
+                    <input class="form-control form-control-sm" placeholder="Name" name="Name" id="div_name"
+                        value="{{this.div_name}}" style="width: 170px" disabled>
+                    <br>
+                    {{!-- <label for="ex2">Name</label>
+          <input class="form-control form-control-sm" placeholder="Name" name="Name" id="Name" maxlength="45" required
+            style="text-transform: uppercase; width: 100px">
+          <br> --}}
+                    <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Delete</button>
+                </div>
 
-    <form data-id="{{this.id}}" class="update-form">
-
-
-        <div class="form-group row form-horizontal">
-            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Code</label>
-            <div class="col-sm-10">
-                <input class="form-control form-control-sm" placeholder="Code" name="Code" id="div_code"
-                    value="{{this.div_code}}" style="width: 60px" disabled>
             </div>
-            <br><br>
-            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
-            <div class="col-sm-10">
-                <input class="form-control form-control-sm" placeholder="Name" name="Name" id="div_name"
-                    value="{{this.div_name}}" style="width: 200px" disabled>
-            </div>
-
-        </div>
-
-        <br>
-        <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 25px">Delete</button>
-
-    </form>
-    <button class="btn btn-secondary btn-sm" style="margin-top: 25px" onclick="window.history.back()">Cancel</button>
-    {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+        </form>
+        <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
+            onclick="window.history.back()">Cancel</button>
+        {{!-- <button class="btn btn-secondary btn-sm" style="margin-top: 25px"
         onclick="window.location.href='/master_division'">Cancel</button> --}}
-    <br>
+        <br>
+    </div>
 
 </div>
 <br>
+
+
 <script type="text/javascript">
 
     $(".update-form").on("submit", function (event) {

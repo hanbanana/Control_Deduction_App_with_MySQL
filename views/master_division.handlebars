@@ -27,13 +27,13 @@
             </thead>
 
             <tbody>
-              {{#each deliveryOrder}}
+              {{#each b_division}}
               <tr>
                 {{!-- <td>{{this.id}}</td> --}}
                 <td style="width:50px">{{this.div_code}}</td>
                 <td style="width:100px">{{this.div_name}}</td>
-                <td style="width:200px">{{this.created_date}}</td>
-                <td style="width:200px">{{this.updated_date}}</td>
+                <td style="width:170px">{{this.created_date}}</td>
+                <td style="width:170px">{{this.updated_date}}</td>
                 {{!-- <td><button><a href="delete_b_division/{{this.id}}">Delete</a></button></td> --}}
                 <td style="width:50px"><a href="/b_division_pages/delete_b_division/{{this.id}}">Delete</a></td>
                 <td style="width:50px"><a href="/b_division_pages/edit_b_division/{{this.id}}">Edit</a></td>

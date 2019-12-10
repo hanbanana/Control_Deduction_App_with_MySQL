@@ -26,7 +26,7 @@ var authUser = function (req, res, next) {
 };
 
 var authAdmin = function (req, res, next) {
-    if (req.session && req.session.user === "admin1" && req.session.admin)
+    if (req.session && req.session.user === "adminSession" && req.session.admin)
         return next();
     else
         return res.sendStatus(401);
@@ -57,9 +57,15 @@ router.post('/auth', function (request, response) {
     }
     else if (username === "admin1" && password === "admin1") {
         request.session.admin = true;
-        request.session.user = "admin1";
+        request.session.user = "adminSession";
 
         response.redirect('/BC_Deduction');
+    }
+    else if (username === "admin2" && password === "admin2") {
+        request.session.admin = true;
+        request.session.user = "adminSession";
+
+        response.redirect('https://www.google.com');
     }
     else {
         response.send('Incorrect Username and/or Password!');
@@ -74,8 +80,8 @@ router.get("/BC_Deduction", authAdmin, function (req, res) {
             return res.status(500).end();
         }
 
-        else if (req.session.user === "admin1" || req.session.admin) {
-            res.render("index", { deliveryOrder: data });
+        else if (req.session.user === "adminSession" || req.session.admin) {
+            res.render("index", { b_division: data });
         }
         else {
             res.send('Please login to view this page!');
@@ -91,8 +97,8 @@ router.get("/master_division", authAdmin, function (req, res) {
             return res.status(500).end();
         }
 
-        else if (req.session.user === "admin1" || req.session.admin) {
-            res.render("master_division", { deliveryOrder: data });
+        else if (req.session.user === "adminSession" || req.session.admin) {
+            res.render("master_division", { b_division: data });
         }
         else {
             res.send('Please login to view this page!');
@@ -108,8 +114,8 @@ router.get("/searchTruck", authAdmin, function (req, res) {
             return res.status(500).end();
         }
 
-        else if (req.session.user === "admin1" || req.session.admin) {
-            res.render("searchTruck", { deliveryOrder: data });
+        else if (req.session.user === "adminSession" || req.session.admin) {
+            res.render("searchTruck", { b_division: data });
         }
         else {
             res.send('Please login to view this page!');
@@ -126,7 +132,7 @@ router.get("/customer", authUser, function (req, res) {
         }
 
         else if (req.session.user === "user1") {
-            res.render("customer", { deliveryOrder: data });
+            res.render("customer", { b_division: data });
         }
         else {
             res.send('Please login to view this page!');
@@ -140,7 +146,7 @@ router.get("/contact", function (req, res) {
             return res.status(500).end();
         }
         else if (req.session.user === "user1") {
-            res.render("contact", { deliveryOrder: data });
+            res.render("contact", { b_division: data });
         };
     });
 });
@@ -150,8 +156,8 @@ router.get("/create", function (req, res) {
         if (err) {
             return res.status(500).end();
         }
-        else if (req.session.user === "admin1") {
-            res.render("create", { deliveryOrder: data });
+        else if (req.session.user === "adminSession") {
+            res.render("create", { b_division: data });
         };
     });
 });
@@ -162,8 +168,8 @@ router.get("/b_division_pages/create_b_division", function (req, res) {
         if (err) {
             return res.status(500).end();
         }
-        else if (req.session.user === "admin1") {
-            res.render("b_division_pages/create_b_division", { deliveryOrder: data });
+        else if (req.session.user === "adminSession") {
+            res.render("b_division_pages/create_b_division", { b_division: data });
         };
     });
 });
@@ -173,8 +179,8 @@ router.get("/createTruck", function (req, res) {
         if (err) {
             return res.status(500).end();
         }
-        else if (req.session.user === "admin1") {
-            res.render("createTruck", { deliveryOrder: data });
+        else if (req.session.user === "adminSession") {
+            res.render("createTruck", { b_division: data });
         };
     });
 });
@@ -185,7 +191,7 @@ router.get("/b_division_pages/edit_b_division/:id", function (req, res) {
         if (err) {
             return res.status(500).end();
         }
-        else if (req.session.user === "admin1") {
+        else if (req.session.user === "adminSession") {
             console.log(data);
             res.render("b_division_pages/edit_b_division", data[0]);
         };
@@ -198,7 +204,7 @@ router.get("/b_division_pages/delete_b_division/:id", function (req, res) {
         if (err) {
             return res.status(500).end();
         }
-        else if (req.session.user === "admin1") {
+        else if (req.session.user === "adminSession") {
             console.log(data);
             res.render("b_division_pages/delete_b_division", data[0]);
         };

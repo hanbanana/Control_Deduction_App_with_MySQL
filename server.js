@@ -19,15 +19,6 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
 // b_division_controller file
 var routes = require("./controllers/b_division_controller");
 
