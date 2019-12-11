@@ -22,10 +22,14 @@ app.set("view engine", "handlebars");
 // b_division_controller file
 var routes_b_division = require("./controllers/b_division_controller");
 
+// b_vendor_controller file
+var routes_b_vendor = require("./controllers/b_vendor_controller");
+
 // b_truck_controller file
 var routes_b_truck = require("./controllers/b_truck_controller");
 
 app.use(routes_b_division);
+app.use(routes_b_vendor);
 app.use(routes_b_truck);
 
 // first login page
