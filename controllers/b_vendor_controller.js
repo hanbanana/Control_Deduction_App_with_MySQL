@@ -90,7 +90,7 @@ router.get("/BC_Deduction", authAdmin, function (req, res) {
     });
 });
 
-// Use Handlebars to render the main master_division.handlebars page.
+// Use Handlebars to render the main master_vendor.handlebars page.
 router.get("/master_vendor", authAdmin, function (req, res) {
     connection.query("SELECT * FROM b_vendor;", function (err, data) {
         if (err) {
@@ -108,7 +108,7 @@ router.get("/master_vendor", authAdmin, function (req, res) {
     });
 });
 
-// Use Handlebars to render the create_b_division.handlebars page.
+// Use Handlebars to render the create_b_vendor.handlebars page.
 router.get("/b_vendor_pages/create_b_vendor", function (req, res) {
     connection.query("SELECT * FROM b_division;", function (err, data) {
         if (err) {
@@ -120,20 +120,70 @@ router.get("/b_vendor_pages/create_b_vendor", function (req, res) {
     });
 });
 
-// Use Handlebars to render the edit_b_division.handlebars page.
+// router.get("/b_vendor_pages/create_b_vendor_add_div", function (req, res) {
+//     connection.query("SELECT * FROM b_division;", function (err, data) {
+//         if (err) {
+//             return res.status(500).end();
+//         }
+//         else if (req.session.user === "adminSession") {
+//             res.render("b_vendor_pages/create_b_vendor_add_div", { b_vendor_division: data });
+//         };
+//     });
+// });
+
+// router.get("/b_vendor_pages/create_b_vendor_add_div_2", function (req, res) {
+//     connection.query("SELECT * FROM b_division;", function (err, data) {
+//         if (err) {
+//             return res.status(500).end();
+//         }
+//         else if (req.session.user === "adminSession") {
+//             res.render("b_vendor_pages/create_b_vendor_add_div_2", { b_vendor_division: data });
+//         };
+//     });
+// });
+
+// router.get("/b_vendor_pages/create_b_vendor_add_div_2/:id", function (req, res) {
+//     connection.query("SELECT * FROM b_division where id = ?", [req.params.id], function (err, data) {
+//         if (err) {
+//             return res.status(500).end();
+//         }
+//         else if (req.session.user === "adminSession") {
+//             console.log(data);
+//             res.render("b_vendor_pages/create_b_vendor_add_div_2", data[0]);
+//         };
+//     });
+// });
+
+// Use Handlebars to render the edit_b_vendor.handlebars page.
+// router.get("/b_vendor_pages/edit_b_vendor/:id", function (req, res) {
+//     connection.query("SELECT * FROM b_vendor where id = ?", [req.params.id], function (err, data) {
+//         if (err) {
+//             return res.status(500).end();
+//         }
+//         else if (req.session.user === "adminSession") {
+//             console.log(data);
+//             res.render("b_vendor_pages/edit_b_vendor", data[0]);
+//         };
+//     });
+// });
+
+// two tables from mysql: Use Handlebars to render the edit_b_vendor.handlebars page.
 router.get("/b_vendor_pages/edit_b_vendor/:id", function (req, res) {
-    connection.query("SELECT * FROM b_vendor where id = ?", [req.params.id], function (err, data) {
+    connection.query("SELECT * FROM b_vendor where id = ?", [req.params.id], function (err, result1) {
+        connection.query("SELECT * FROM b_division;", function (err, result2) {
         if (err) {
             return res.status(500).end();
         }
         else if (req.session.user === "adminSession") {
-            console.log(data);
-            res.render("b_vendor_pages/edit_b_vendor", data[0]);
+            console.log(result1);
+            console.log(result2);
+            res.render("b_vendor_pages/edit_b_vendor", {result1, result2});
         };
     });
 });
+});
 
-// Use Handlebars to render the delete_b_division.handlebars page.
+// Use Handlebars to render the delete_b_vendor.handlebars page.
 router.get("/b_vendor_pages/delete_b_vendor/:id", function (req, res) {
     connection.query("SELECT * FROM b_vendor where id = ?", [req.params.id], function (err, data) {
         if (err) {
@@ -159,6 +209,22 @@ router.post("/b_vendor_list", function (req, res) {
             console.log({ id: result.insertId });
         });
 });
+
+// for create_b_vendor_add_div
+
+// router.post("/b_vendor_list", function (req, res) {
+//     connection.query("INSERT INTO b_vendor (vendor_div, vendor_div_name, vendor_vendor_code, vendor_vendor_name, vendor_registration_name_1, vendor_registration_name_2, vendor_registration_address, vendor_lien_holder) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+//         [req.body.vendor_div, req.body.vendor_div_name, req.body.vendor_vendor_code, req.body.vendor_vendor_name, req.body.vendor_registration_name_1, req.body.vendor_registration_name_2, req.body.vendor_registration_address, req.body.vendor_lien_holder], function (err, result) {
+//             if (err) {
+//                 return res.status(500).end();
+//             }
+
+//             // Send back the ID of the new todo
+//             res.json({ id: result.insertId });
+//             console.log({ id: result.insertId });
+//         });
+// });
+
 
 // Retrieve all list
 router.get("/b_vendor_list", function (req, res) {
